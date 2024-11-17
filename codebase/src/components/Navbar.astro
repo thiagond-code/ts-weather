@@ -1,0 +1,51 @@
+---
+interface Navbar {
+    title: string;
+    pages: { name: string; url: `/${string}` }[];
+}
+
+const navbar: Navbar = {
+    title: "SkyCast",
+    pages: [
+        { name: "Home", url: "/" },
+        { name: "Contact", url: "/contact" },
+    ],
+};
+
+const pages = navbar.pages;
+---
+
+<header class="bg-indigo-600 text-white">
+    <nav
+        class="container mx-auto p-6 flex justify-between items-center sm:py-8"
+    >
+        <h1 class="text-2xl font-bold">{navbar.title}</h1>
+        <ul class="flex gap-8">
+            {
+                pages.map((page) => {
+                    return (
+                        <li class="hidden sm:block">
+                            <a href={page.url} class="font-medium">
+                                {page.name}
+                            </a>
+                        </li>
+                    );
+                })
+            }
+
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="sm:hidden size-8"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+            </svg>
+        </ul>
+    </nav>
+</header>
