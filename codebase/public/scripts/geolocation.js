@@ -14,7 +14,7 @@ function weatherUserData() {
             const temperature = document.getElementById('temperature');
             const description = document.getElementById('description');
     
-            const apiKey = "c287beeb39cc4df882870e6de0a77573";
+            const apiKey = process.env.WEATHER_API_KEY;
             const apiUrl = `https://api.weatherbit.io/v2.0/current?lat=${latitude}&lon=${longitude}&key=${apiKey}&lang=pt`;
             console.log(apiUrl)
             try {
