@@ -1,10 +1,26 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { HOMEPAGE_TITLE } from '../../consts'
+
+const city = "Governador Valadares"
+const temperature = 100
+
 ---
 
 <Layout title={HOMEPAGE_TITLE}>
-	<main>
-		
+	<main class="container mx-auto py-16 space-y-8">
+		<section class="flex flex-col items-center gap-10">
+			<form>
+				<input placeholder="Search your city here" class="rounded p-2 border-2">
+			</form>
+			<h2 class="text-4xl font-semibold">Welcome!</h2>
+			<p class="text-2xl" id="city"></p>
+			<div class="text-center space-y-6">
+				<h3 class="text-6xl font-bold" id="temperature"></h3>
+				<p id="description"></p>
+			</div>
+			<button onclick="weatherUserData()">Get my Location</button>
+		</section>
 	</main>
 </Layout>
+<script src="/scripts/geolocation.js" is:inline></script>
